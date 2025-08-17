@@ -2,7 +2,7 @@ let alertedCoins = new Set();
 
 function handleNewCoin(coin) {
     if (!alertedCoins.has(coin)) {
-        bot.sendMessage(TELEGRAM_CHAT_ID, `🚀 New Coin Detected: ${coin.name} (${coin.symbol})`);
+        handleNewCoin(coin);(TELEGRAM_CHAT_ID, `🚀 New Coin Detected: ${coin.name} (${coin.symbol})`);
         alertedCoins.add(coin);
     } else {
         console.log(`⏩ Already alerted for ${coin.name}, skipping...`);
@@ -16,7 +16,7 @@ const chatId = process.env.TELEGRAM_CHAT_ID;
 
 // Demo function - इथे नंतर Solana/Raydium detection logic add होईल
 function newCoinDetected(coin) {
-  bot.sendMessage(chatId, `🚀 New coin detected: ${coin}`);
+  handleNewCoin(coin);(chatId, `🚀 New coin detected: ${coin}`);
 }
 
 // फक्त test साठी 5 सेकंदांनी alert
