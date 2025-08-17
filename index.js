@@ -1,3 +1,13 @@
+let alertedCoins = new Set();
+
+function handleNewCoin(coin) {
+    if (!alertedCoins.has(coin)) {
+        bot.sendMessage(TELEGRAM_CHAT_ID, `🚀 New Coin Detected: ${coin.name} (${coin.symbol})`);
+        alertedCoins.add(coin);
+    } else {
+        console.log(`⏩ Already alerted for ${coin.name}, skipping...`);
+    }
+}
 import TelegramBot from "node-telegram-bot-api";
 
 // Telegram Bot setup
